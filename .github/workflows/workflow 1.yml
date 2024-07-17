@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for lock file
-        shell: bash
+        shell: pwsh
         run: |
           if [ -f lock ]; then
             echo "Lock file found, waiting for it to be released."
@@ -35,6 +35,7 @@ jobs:
     needs: job1
     steps:
       - name: Step 1
+        shell: pwsh
         run: echo "This is Workflow 1 - Job 2"
 
       - name: Remove lock file
