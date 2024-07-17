@@ -34,5 +34,10 @@ jobs:
         run: echo "This is Workflow 1 - Job 2"
 
       - name: Remove lock file
-        run: rm lock
+        run: |
+          if [ -f lock ]; then
+            rm lock  # Remove the lock file if it exists
+          else
+            echo "No lock file to remove."
+          fi
         
