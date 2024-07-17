@@ -1,0 +1,26 @@
+name: Workflow 2
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        shell: pwsh
+        run: |
+          echo "This is Workflow 2 - Job 1"
+          Start-Sleep -s 10
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "This is Workflow 2 - Job 2"
