@@ -1,8 +1,11 @@
 name: Workflow 1
 
+# on:
+  # workflow_dispatch: # Triggered manually
 on:
-  workflow_dispatch: # Triggered manually
-
+  push:
+    branches:
+      - dev
 jobs:
   job1:
     runs-on: ubuntu-latest
