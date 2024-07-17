@@ -6,7 +6,11 @@ name: Workflow 2
 #       - dev  # Adjust branch as per your requirements
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches:
+      - main
+
 
 jobs:
   build:
