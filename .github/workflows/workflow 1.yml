@@ -11,10 +11,14 @@ jobs:
         run: |
           if [ -f lock ]; then
             echo "Lock file found, waiting for it to be released."
+            ls -ltr
+            pwd
             exit 1
           else
             echo "No lock file found, proceeding."
             touch lock
+            ls -ltr
+            pwd
           fi
   job1:
     runs-on: ubuntu-latest
@@ -34,3 +38,4 @@ jobs:
 
       - name: Remove lock file
         run: rm lock
+        
