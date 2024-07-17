@@ -27,7 +27,7 @@ jobs:
       - name: Step 1
         run: |
          echo "This is Workflow 1 - Job 1"
-         sleep 20 
+         sleep 40 
 
   job2:
     runs-on: ubuntu-latest
