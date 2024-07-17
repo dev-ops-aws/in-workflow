@@ -23,7 +23,7 @@ jobs:
         shell: pwsh
         run: |
          echo "This is Workflow 1 - Job 1"
-         Start-Sleep -s 5
+         Start-Sleep -s 20
 
   job2:
     runs-on: ubuntu-latest
