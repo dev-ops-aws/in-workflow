@@ -1,22 +1,29 @@
 name: Workflow 1
 
-# on:
-  # workflow_dispatch: # Triggered manually
 on:
-  push:
-    branches:
-      - dev
+  workflow_dispatch:  # Manual trigger
+
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for lock file
+        run: |
+          if [ -f lock ]; then
+            echo "Lock file found, waiting for it to be released."
+            exit 1
+          else
+            echo "No lock file found, proceeding."
+            touch lock
+          fi
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Acquire Lock
-        id: acquire-lock
-        run: |
-          echo "Acquiring lock for Workflow 1"
-          echo "lock=true" > lock.txt
       - name: Step 1
-        run: echo "This is Workflow 1 - Job 1"
+        shell: pwsh
+        run: |
+         echo "This is Workflow 1 - Job 1"
+         Start-Sleep -s 5
 
   job2:
     runs-on: ubuntu-latest
@@ -24,8 +31,6 @@ jobs:
     steps:
       - name: Step 1
         run: echo "This is Workflow 1 - Job 2"
-      - name: Release Lock
-        if: success()
-        run: |
-          echo "Releasing lock for Workflow 1"
-          rm lock.txt
+
+      - name: Remove lock file
+        run: rm lock
