@@ -8,34 +8,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for lock file
-        shell: pwsh
         run: |
           if [ -f lock ]; then
             echo "Lock file found, waiting for it to be released."
-            ls -ltr
-            pwd
-            exit 1
+            ls -ltr  # List files for debugging
+            exit 1   # Exit with error to stop workflow
           else
             echo "No lock file found, proceeding."
-            touch lock
-            ls -ltr
-            pwd
+            touch lock  # Create the lock file
+            ls -ltr  # List files for debugging
           fi
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
-        shell: pwsh
         run: |
          echo "This is Workflow 1 - Job 1"
-         Start-Sleep -s 20
+         sleep 20 
 
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
       - name: Step 1
-        shell: pwsh
         run: echo "This is Workflow 1 - Job 2"
 
       - name: Remove lock file
