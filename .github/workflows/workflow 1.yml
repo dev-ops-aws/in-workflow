@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for lock file
+        shell: bash
         run: |
           if [ -f lock ]; then
             echo "Lock file found, waiting for it to be released."
