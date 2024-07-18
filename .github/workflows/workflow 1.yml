@@ -32,7 +32,7 @@ jobs:
       - name: Step 1
         run: |
          echo "This is Workflow 1 - Job 1"
-         sleep 40 
+         sleep 60 
 
   job2:
     runs-on: ubuntu-latest
@@ -40,6 +40,7 @@ jobs:
     steps:
       - name: Step 1
         run: echo "This is Workflow 1 - Job 2"
+        
 
       # - name: Remove lock file
       #   run: |
