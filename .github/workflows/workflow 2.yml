@@ -10,10 +10,12 @@ on:
   # push:
   #   branches:
   #     - dev
+# concurrency:
+#   # group: ${{ github.workflow }}-${{ github.ref }}
+#   cancel-in-progress: true
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
-
 
 jobs:
   # build:
