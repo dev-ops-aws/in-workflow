@@ -10,9 +10,11 @@ on:
   # push:
   #   branches:
   #     - dev
+  
 # concurrency:
 #   # group: ${{ github.workflow }}-${{ github.ref }}
 #   cancel-in-progress: true
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: false
