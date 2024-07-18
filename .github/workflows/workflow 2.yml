@@ -7,9 +7,9 @@ name: Workflow 2
 
 on:
   workflow_dispatch:  # Manual trigger
-  push:
-    branches:
-      - dev
+  # push:
+  #   branches:
+  #     - dev
 
 
 jobs:
