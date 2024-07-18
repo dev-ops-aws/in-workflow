@@ -1,7 +1,7 @@
 name: Workflow 1
 
 on:
-  workflow_dispatch:  # Manual 
+  workflow_dispatch:  # M
   # push:
   #   branches:
   #     - dev
