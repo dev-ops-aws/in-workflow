@@ -6,10 +6,10 @@ name: Workflow 2
 #       - dev  # Adjust branch as per your requirements
 
 on:
- # workflow_dispatch:  # Manual trigger
-  push:
-    branches:
-      - dev
+  workflow_dispatch:  # Manual trigger
+  # push:
+  #   branches:
+  #     - dev
 # concurrency:
 #   # group: ${{ github.workflow }}-${{ github.ref }}
 #   cancel-in-progress: true
