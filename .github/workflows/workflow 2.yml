@@ -3,7 +3,7 @@
 # # on:
 # #   pull_request:
 # #     branches:
-# #       - dev  # Adjust branch as per your requirements
+# #       - dev  # Adjust branch as per your requirem
 
 # on:
 #   workflow_dispatch:  # Manual trigger
