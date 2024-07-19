@@ -1,0 +1,14 @@
+name: COncurrent
+
+on:
+  workflow_dispatch:  
+  push:
+    branches:
+      - dev
+  pull_request:
+     branches:
+      - dev 
+
+concurrency:
+  group: ci_workflow_group
+  cancel-in-progress: false
