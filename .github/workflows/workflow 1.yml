@@ -41,7 +41,8 @@ jobs:
 
   job2:
     runs-on: self-hosted
-    needs: job1
+ 
+    #needs: job1
     steps:
       - name: Step 1
         run: echo "This is Workflow 1 - Job 2"
