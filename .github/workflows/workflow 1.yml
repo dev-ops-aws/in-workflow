@@ -2,12 +2,8 @@ name: Workflow 1
 
 on:
   workflow_dispatch:  
-  # push:
-  #   branches:
-  #     - dev
-  # pull_request:
-  #    branches:
-  #     - dev 
+  push:    
+  pull_request:
 
 concurrency:
   group: ci_workflow_group
