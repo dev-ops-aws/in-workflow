@@ -3,7 +3,7 @@ name: Workflow 2
 # on:
 #   pull_request:
 #     branches:
-#       - dev  # Adjust branch as per your requirem
+#       - dev  # Adjust branch as per your requirement
 
 on:
   workflow_dispatch:
