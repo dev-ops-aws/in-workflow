@@ -63,7 +63,7 @@ on:
   push:
 jobs:
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     concurrency: 
       group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
       cancel-in-progress: true
@@ -76,17 +76,17 @@ jobs:
       # - name: Build
       #   run: echo "Building project from PR"
   job1:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Step 1
         run: |
-         echo "This is Workflow 1 - Job 1"
+         echo "This is Workflow 2 - Job 1"
          sleep 60 
 
   job2:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: job1
     steps:
       - name: Step 1
-        run: echo "This is Workflow 1 - Job 2"
+        run: echo "This is Workflow 2 - Job 2"
 
