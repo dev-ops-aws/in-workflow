@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   # build:
-  #   runs-on: ubuntu-latest
+  #   runs-on: self-hosted
   #   steps:
   #     - name: Check for lock file
   #       run: |
@@ -32,7 +32,7 @@ jobs:
   #           ls -ltr  # List files for debugging
   #         fi
   job1:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Step 1
         run: |
@@ -41,7 +41,7 @@ jobs:
 
   job2:
    # runs-on: self-hosted
-     runs-on: ubuntu-latest
+    runs-on: self-hosted
     #needs: job1
     steps:
       - name: Step 1
