@@ -2,7 +2,7 @@ name: Workflow 1
 
 on:
   workflow_dispatch:  
-  push:
+#  push:
   
  
 
