@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: self-hosted[runner1]
+    runs-on: self-hosted
     
     steps:
       - name: Step 1
@@ -23,7 +23,7 @@ jobs:
          sleep 30 
 
   job2:
-    runs-on: self-hosted[runner1]
+    runs-on: self-hosted
     needs: job1
     steps:
       - name: Step 1
