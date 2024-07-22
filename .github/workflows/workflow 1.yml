@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: self-hosted
+    runs-on: Parallel-test
     steps:
       - name: Step 1
         run: |
@@ -21,7 +21,7 @@ jobs:
          sleep 30 
 
   job2:
-    runs-on: self-hosted
+    runs-on: Parallel-test
     needs: job1
     steps:
       - name: Step 1
