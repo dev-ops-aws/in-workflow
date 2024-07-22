@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
       
   pull_request:
+  push:
 
 concurrency:
   group: ci_workflow_group
@@ -14,14 +15,14 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: self-hosted[runner2]
+    runs-on: self-hosted
     steps:
       - name: Step 1
         run: |
          echo "This is Workflow 2 - Job 1"
           sleep 30 
   job2:
-    runs-on: self-hosted[runner2]
+    runs-on: self-hosted
     needs: job1
     steps:
       - name: Step 1
