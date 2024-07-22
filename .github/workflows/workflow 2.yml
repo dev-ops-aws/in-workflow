@@ -10,7 +10,7 @@ concurrency:
   group: ci_workflow_group
   cancel-in-progress: false
 
-# concurrency: 
+# concurrency:
 #   group: ${{ github.head_ref ||  github.ref }}
 
 jobs:
