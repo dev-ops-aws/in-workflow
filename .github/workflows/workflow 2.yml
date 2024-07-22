@@ -10,9 +10,6 @@ concurrency:
   group: ci_workflow_group
   cancel-in-progress: false
 
-# concurrency:
-#   group: ${{ github.head_ref ||  github.ref }}
-
 jobs:
   job1:
     runs-on: self-hosted
