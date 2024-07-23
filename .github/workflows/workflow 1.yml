@@ -27,18 +27,18 @@ jobs:
          sleep 10
 
   job3:
-    runs-on: self-hosted
+    runs-on: windows-latest
  #   needs: [job1, job2]
     steps:
       - name: Step 3
         run: echo "This is Workflow 1 - Job 3"
 
-  job4:
-    runs-on: self-hosted
- #   needs: [job1, job2, job3]
-    steps:
-      - name: Step 4
-        run: echo "This is Workflow 1 - Job 4"
+ #  job4:
+ #    runs-on: self-hosted
+ # #   needs: [job1, job2, job3]
+ #    steps:
+ #      - name: Step 4
+ #        run: echo "This is Workflow 1 - Job 4"
         
         
 
