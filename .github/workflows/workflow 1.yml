@@ -12,6 +12,9 @@ jobs:
   job1:
     runs-on: self-hosted
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Step 1
         run: |
          echo "This is Workflow 1 - Job 1"
@@ -21,6 +24,9 @@ jobs:
     runs-on: self-hosted
     needs: job1
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Step 2
         run: |
          echo "This is Workflow 1 - Job 2"
@@ -30,6 +36,9 @@ jobs:
     runs-on: self-hosted
     needs: job2
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Step 3
         run: echo "This is Workflow 1 - Job 3"
 
@@ -37,6 +46,9 @@ jobs:
     runs-on: self-hosted
     needs: job3
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Step 4
         run: echo "This is Workflow 1 - Job 4"
         
