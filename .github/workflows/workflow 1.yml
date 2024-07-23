@@ -11,7 +11,6 @@ concurrency:
 jobs:
   job1:
     runs-on: self-hosted
-    
     steps:
       - name: Step 1
         run: |
@@ -29,7 +28,7 @@ jobs:
 
   job3:
     runs-on: self-hosted
-   # needs: job2
+    needs: job2
     steps:
       - name: Step 3
         run: echo "This is Workflow 1 - Job 3"
