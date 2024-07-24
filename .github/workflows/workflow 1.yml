@@ -10,11 +10,7 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: self-hosted
-    # concurrency:
-    #   group: ci_workflow_job
-    #   cancel-in-progress: false
-    
+    runs-on: self-hosted 
     steps:
       - name: Step 1
         run: |
@@ -23,9 +19,6 @@ jobs:
 
   job2:
     runs-on: self-hosted
-    concurrency:
-      group: ci_workflow_job
-      cancel-in-progress: false
  #   needs: job1
     steps:
       - name: Step 2
