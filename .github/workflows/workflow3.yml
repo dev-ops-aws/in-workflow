@@ -6,9 +6,9 @@ jobs:
   job1:
     runs-on: runner1
     steps:
-      - name: Run Job 1
+      - name: Job 1
         run: echo "Output from Job 1" > job1_output.txt
-      - name: Upload Job 1 Output
+      - name: job1 output
         uses: actions/upload-artifact@v3
         with:
           name: job1-output
@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Run Job 2
         run: echo "Output from Job 2" > job2_output.txt
-      - name: Upload Job 2 Output
+      - name: Job2 Output
         uses: actions/upload-artifact@v3
         with:
           name: job2-output
@@ -44,7 +44,7 @@ jobs:
         shell: powershell
         run: Get-Content ./job1_output/job1_output.txt
 
-  job5:
+  job4:
     runs-on: runner2
     steps:
       - name: Download Job 2 Output
