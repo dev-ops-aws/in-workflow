@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: self-hosted
+    runs-on: runner1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
          sleep 10 
 
   job2:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
    # needs: job1
     steps:
       - name: Checkout
@@ -33,7 +33,7 @@ jobs:
          sleep 10
 
   job3:
-    runs-on: windows-latest
+    runs-on: runner2
    # needs: job2
     steps:
       - name: Checkout
