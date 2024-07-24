@@ -34,15 +34,15 @@ jobs:
           name: job1-output
           path: ./job1_output
       - name: Wait for Job 1 Output
-        shell: pwsh
+        shell: powershell
         run: |
           while (-Not (Test-Path -Path ./job1_output/job1_output.txt)) {
             Write-Host "Waiting for Job 1 output..."
             Start-Sleep -Seconds 10
           }
       - name: Run Job 3
-        run: cat ./job1_output/job1_output.txt
-        shell: pwsh
+        shell: powershell
+        run: Get-Content ./job1_output/job1_output.txt
 
   job5:
     runs-on: runner2
@@ -53,12 +53,12 @@ jobs:
           name: job2-output
           path: ./job2_output
       - name: Wait for Job 2 Output
-        shell: pwsh
+        shell: powershell
         run: |
           while (-Not (Test-Path -Path ./job2_output/job2_output.txt)) {
             Write-Host "Waiting for Job 2 output..."
             Start-Sleep -Seconds 10
           }
       - name: Run Job 5
-        run: cat ./job2_output/job2_output.txt
-        shell: pwsh
+        shell: powershell
+        run: Get-Content ./job2_output/job2_output.txt
