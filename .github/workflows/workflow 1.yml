@@ -18,7 +18,7 @@ jobs:
        #  sleep 10 
 
   job2:
-    runs-on: self-hosted
+    runs-on: test1
  #   needs: job1
     steps:
       - name: Step 2
