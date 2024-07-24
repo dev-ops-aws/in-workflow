@@ -1,4 +1,4 @@
-name: Parallel and Sequential Execution
+name: parallel
 
 on: [push]
 
