@@ -2,11 +2,11 @@ name: Workflow 1
 
 on:
   workflow_dispatch:  
-  # push:
+  push:
 
-concurrency:
-  group: ci_workflow_group
-  cancel-in-progress: false
+# concurrency:
+#   group: ci_workflow_group
+#   cancel-in-progress: false
 
 jobs:
   job1:
@@ -18,7 +18,7 @@ jobs:
        #  sleep 10 
 
   job2:
-    runs-on: test1
+    runs-on: self-hosted
  #   needs: job1
     steps:
       - name: Step 2
@@ -27,14 +27,14 @@ jobs:
      #    sleep 10
 
   job3:
-    runs-on: test2
+    runs-on: self-hosted
   #  needs: job2
     steps:   
       - name: Step 3
         run: echo "This is Workflow 1 - Job 3"
 
   job4:
-    runs-on: runner1
+    runs-on: self-hosted
  #   needs: job3
     steps:     
       - name: Step 4
