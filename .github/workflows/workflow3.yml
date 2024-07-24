@@ -1,0 +1,50 @@
+name: Parallel and Sequential Execution
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: runner1
+    steps:
+      - name: Run Job 1
+        run: echo "Output from Job 1" > job1_output.txt
+      - name: Upload Job 1 Output
+        uses: actions/upload-artifact@v3
+        with:
+          name: job1-output
+          path: job1_output.txt
+
+  job2:
+    runs-on: runner2
+    steps:
+      - name: Run Job 2
+        run: echo "Output from Job 2" > job2_output.txt
+      - name: Upload Job 2 Output
+        uses: actions/upload-artifact@v3
+        with:
+          name: job2-output
+          path: job2_output.txt
+
+  job3:
+    runs-on: test1
+    needs: job1
+    steps:
+      - name: Download Job 1 Output
+        uses: actions/download-artifact@v3
+        with:
+          name: job1-output
+          path: ./job1_output
+      - name: Run Job 3
+        run: cat ./job1_output/job1_output.txt
+
+  job5:
+    runs-on: test2
+    needs: job2
+    steps:
+      - name: Download Job 2 Output
+        uses: actions/download-artifact@v3
+        with:
+          name: job2-output
+          path: ./job2_output
+      - name: Run Job 5
+        run: cat ./job2_output/job2_output.txt
