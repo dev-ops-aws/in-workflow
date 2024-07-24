@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: parallel-runner
+    runs-on: [self-hosted,runner1]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
          sleep 10 
 
   job2:
-    runs-on: self-hosted
+    runs-on: [self-hosted, runner2]
    # needs: job1
     steps:
       - name: Checkout
