@@ -10,10 +10,10 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: runner1
-    concurrency:
-      group: ci_workflow
-      cancel-in-progress: false
+    runs-on: self-hosted
+    # concurrency:
+    #   group: ci_workflow
+    #   cancel-in-progress: false
     steps:
       - name: Step 1
         run: |
@@ -21,10 +21,10 @@ jobs:
        #  sleep 10 
 
   job2:
-    runs-on: runner2
-    concurrency:
-      group: ci_workflow
-      cancel-in-progress: false
+    runs-on: self-hosted
+    # concurrency:
+    #   group: ci_workflow
+    #   cancel-in-progress: false
  #   needs: job1
     steps:
       - name: Step 2
@@ -33,21 +33,21 @@ jobs:
      #    sleep 10
 
   job3:
-    runs-on: test1
-    concurrency:
-      group: ci_workflow
-      cancel-in-progress: false
+    runs-on: self-hosted
+    # concurrency:
+    #   group: ci_workflow
+    #   cancel-in-progress: false
   #  needs: job2
     steps:   
       - name: Step 3
         run: echo "This is Workflow 1 - Job 3"
 
- #  job4:
- #    runs-on: test2
- # #   needs: job3
- #    steps:     
- #      - name: Step 4
- #        run: echo "This is Workflow 1 - Job 4"
+  job4:
+    runs-on: self-hosted
+ #   needs: job3
+    steps:     
+      - name: Step 4
+        run: echo "This is Workflow 1 - Job 4"
         
         
 
