@@ -1,6 +1,7 @@
 # name: ParallelExecution
 
-# on: [push]
+# on:
+ #   workflow_dispatch:
 
 # jobs:
 #   job1:
@@ -67,40 +68,6 @@
 #         shell: powershell
 #         run: Get-Content ./job2_output/job2_output.txt
 
-# name: GitHub Actions Parallel Run
-# 'on':
-#   workflow_dispatch: 
-#   pull_request:
-#   push:
-      
-    
-# jobs:
-#   Google-Test:
-#     timeout-minutes: 120
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-#       - name: Google-Test
-#         uses: cypress-io/github-action@v2
-#         with:
-#           command: npm run google
-#           browser: chrome
-#           headless: true
-#           record: false
-#   Amazon-Test:
-#     timeout-minutes: 120
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-#       - name: Google-Test
-#         uses: cypress-io/github-action@v2
-#         with:
-#           command: npm run amazon
-#           browser: chrome
-#           headless: true
-#           record: false
 
 name: Workflow 3
 
