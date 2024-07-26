@@ -71,90 +71,30 @@
 
 # name: Workflow 3
 
-# on:
-#   workflow_dispatch:
-      
-#   pull_request:
- 
-
-# concurrency:
-#   group: ci_workflow_group
-#   cancel-in-progress: false
-
-# jobs:
-#   job1:
-#     runs-on: self-hosted
-#     steps:
-#       - name: Step 1
-#         run: |
-#          echo "This is Workflow 3 - Job 1"
-#           sleep 30 
-#   job2:
-#     runs-on: self-hosted
-#     needs: job1
-#     steps:
-#       - name: Step 1
-#         run: echo "This is Workflow 3 - Job 2"
-
-name: Workflow 3
-
 on:
   workflow_dispatch:
+      
   pull_request:
+ 
 
-# concurrency:
-#   group: ci_workflow_group
-#   cancel-in-progress: false
+concurrency:
+  group: ci_workflow_group
+  cancel-in-progress: false
 
 jobs:
-  queue-pr:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Enqueue PR
-        id: enqueue
-        run: |
-          PR_NUMBER=${{ github.event.pull_request.number || github.sha }}
-          echo "Processing PR #$PR_NUMBER"
-
-          # Example: Add PR to queue
-          RESPONSE=$(curl -X POST -H "Content-Type: application/json" \
-            -d "{\"pr_number\": \"$PR_NUMBER\"}" \
-            https://your-queue-management-system/api/add_to_queue)
-          echo "Queue response: $RESPONSE"
-          QUEUE_ID=$(echo $RESPONSE | jq -r '.queue_id')
-          echo "Queue ID: $QUEUE_ID"
-          echo "::set-output name=queue_id::$QUEUE_ID"
-
-      - name: Wait for Turn
-        run: |
-          PR_NUMBER=${{ github.event.pull_request.number || github.sha }}
-          QUEUE_ID=${{ steps.enqueue.outputs.queue_id }}
-          while true; do
-            STATUS=$(curl -s https://your-queue-management-system/api/check_status?queue_id=$QUEUE_ID)
-            if [ "$STATUS" == "ready" ]; then
-              echo "PR #$PR_NUMBER is ready to be processed"
-              break
-            fi
-            echo "Waiting for PR #$PR_NUMBER's turn..."
-            sleep 60
-          done
-
   job1:
-    runs-on: self-hosted
-    needs: queue-pr
+    runs-on: ubuntu-latest
     steps:
       - name: Step 1
         run: |
-          echo "This is Workflow 3 - Job 1"
+         echo "This is Workflow 3 - Job 1"
           sleep 30 
-
   job2:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: job1
     steps:
-      - name: Step 2
+      - name: Step 1
         run: echo "This is Workflow 3 - Job 2"
+
+
 
