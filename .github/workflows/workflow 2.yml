@@ -6,9 +6,9 @@ on:
   pull_request:
  
 
-# concurrency:
-#   group: ci_workflow_group
-#   cancel-in-progress: false
+concurrency:
+  group: ci_workflow_group
+  cancel-in-progress: false
 
 jobs:
   job1:
@@ -20,7 +20,7 @@ jobs:
           sleep 30 
   job2:
     runs-on: self-hosted
-#    needs: job1
+    needs: job1
     steps:
       - name: Step 1
         run: echo "This is Workflow 2 - Job 2"
