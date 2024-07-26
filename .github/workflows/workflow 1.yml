@@ -4,16 +4,13 @@ on:
   workflow_dispatch:  
 #  pus
 
-# concurrency:
-#   group: ci_workflow_group
-#   cancel-in-progress: false
+concurrency:
+  group: ci_workflow_group
+  cancel-in-progress: false
 
 jobs:
   job1:
     runs-on: self-hosted
-    # concurrency:
-    #   group: ci_workflow
-    #   cancel-in-progress: false
     steps:
       - name: Step 1
         run: |
@@ -22,9 +19,6 @@ jobs:
 
   job2:
     runs-on: self-hosted
-    # concurrency:
-    #   group: ci_workflow
-    #   cancel-in-progress: false
     needs: job1
     steps:
       - name: Step 2
@@ -34,9 +28,6 @@ jobs:
 
   job3:
     runs-on: self-hosted
-    # concurrency:
-    #   group: ci_workflow
-    #   cancel-in-progress: false
     needs: job1
     steps:   
       - name: Step 3
