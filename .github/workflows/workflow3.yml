@@ -69,7 +69,7 @@
 #         run: Get-Content ./job2_output/job2_output.txt
 
 
- name: Workflow 3
+name: Workflow 3
 
 on:
   workflow_dispatch:
