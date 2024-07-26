@@ -155,5 +155,6 @@ jobs:
     runs-on: self-hosted
     needs: job1
     steps:
-      - name: Ste
+      - name: Step 2
+        run: echo "This is Workflow 3 - Job 2"
 
