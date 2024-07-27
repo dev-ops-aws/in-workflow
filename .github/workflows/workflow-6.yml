@@ -10,7 +10,7 @@ jobs:
       - name: Step 1
         run: |
          echo "This is Workflow 6 - Job 1"
-         echo $hostname
+         cat /proc/sys/kernel/hostname
       - name: Acquire lock
         id: acquire-lock
         run: |
