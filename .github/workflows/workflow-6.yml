@@ -5,7 +5,7 @@ on:
 
 jobs:
   example-job2:
-    runs-on: win-runner
+    runs-on: self-hosted
     steps:
       - name: Step 1
         run: |
