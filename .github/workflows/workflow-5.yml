@@ -4,10 +4,24 @@ on:
   workflow_dispatch:  
 
 jobs:
-  exampple-job1:
+  example-job1:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
         run: |
          echo "This is Workflow 1 - Job 1"
-         sleep 10 
+      - name: Acquire lock
+        id: acquire-lock
+        run: |
+          LOCK_FILE=/tmp/workflow.lock
+          while [ -f $LOCK_FILE ] ; do
+            echo "Another workflow running. waiting..."
+            sleep 10
+          done
+          touch $LOCK_FILE
+
+      - name: Release lock
+        if: always()
+        run: |
+          LOCK_FILE=/tmp/worklfow.lock
+          rm -f $LOCK_FILE
