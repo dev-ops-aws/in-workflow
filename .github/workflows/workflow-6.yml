@@ -7,10 +7,6 @@ jobs:
   example-job2:
     runs-on: self-hosted
     steps:
-      - name: Step 1
-        run: |
-         echo "This is Workflow 6 - Job 1"
-         cat /proc/sys/kernel/hostname
       - name: Acquire lock
         id: acquire-lock
         run: |
@@ -20,7 +16,10 @@ jobs:
             sleep 10
           done
           touch $LOCK_FILE
-
+      - name: Step 2
+        run: |
+         echo "This is Workflow 6 - Job 1"
+         cat /proc/sys/kernel/hostname
       - name: Release lock
         if: always()
         run: |
