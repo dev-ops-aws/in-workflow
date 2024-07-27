@@ -11,7 +11,7 @@ jobs:
         id: acquire-lock
         run: |
           LOCK_FILE=/tmp/workflow.lock
-          while [ -f $LOCK_FILE ] ; do
+          while [ -f $LOCK_FILE ]; do
             echo "Another workflow running. waiting..."
             sleep 10
           done
