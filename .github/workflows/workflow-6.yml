@@ -23,5 +23,5 @@ jobs:
       - name: Release lock
         if: always()
         run: |
-          LOCK_FILE=/tmp/worklfow.lock
+          LOCK_FILE=/tmp/workflow.lock
           rm -f $LOCK_FILE
